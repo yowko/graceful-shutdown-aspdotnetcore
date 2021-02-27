@@ -24,6 +24,8 @@ namespace GracefulShutdown
                 // long time works
                 var _service = host.Services.GetRequiredService<SlowHostedService>();
                 _service.StopAsync(new CancellationToken()).GetAwaiter().GetResult();
+                //也可以直接指定等待時間
+                //Thread.Sleep(10_1000);
             });
             host.Run();
             Console.WriteLine("application stop");
