@@ -27,6 +27,8 @@ namespace GracefulShutdown
         {
             services.AddControllers();
             services.AddHostedService<SlowHostedService>();
+            
+            services.Configure<HostOptions>(opts => opts.ShutdownTimeout = TimeSpan.FromSeconds(15));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
